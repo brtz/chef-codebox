@@ -21,13 +21,16 @@ Further Components
 =============
 You could also call this plugins or extensions. The basic idea of this is to add further recipes that are loadable
 through a node attribute. The author added a test-kitchen fc to show an example (and as he needed that :D).
+
 The kitchen-env fc adds virtualbox, vagrant and test-kitchen including dependencies to the node. This way multiple
 developers can use the codebox ide and run kitchen on that machine always keeping at the same version
 (aka no more "DID YOU GUYS UPDATE VBOX AS WELL? IT BROKE..."
+
 You could also do other stuff like setting up a redis server or deploy a filebase to each workspace.
 In the author's humble opinion: DON'T! No matter how simple it seems, do not try to create shared services
 between different developers. Reduce usage to a minimum and deploy applications every developer on your box can
 use seperately.
+
 If you would like to see some other fcs included, fork this repo, write them, test them and open up a pull
 request please.
 
@@ -46,9 +49,6 @@ Optional through fc:
 * vagrant: http://www.vagrantup.com
 * test-kitchen: http://kitchen.ci/
 * rubocop: http://batsov.com/rubocop/
-
-Poem
-=======
 
 License and Author
 ==================

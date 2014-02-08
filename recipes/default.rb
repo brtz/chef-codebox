@@ -16,7 +16,7 @@ db_users = data_bag_item('codebox', node['codebox']['data_bags']['users_name'])
 db_users['entries'].each do |user, details|
   # npm install codebox
   unless node['codebox']['known_users'].include?(user)
-    bash "install codebox for user: " + user do
+    bash 'install codebox for user: ' + user do
       cwd details['home']
       user user
       code <<-EOH
@@ -28,39 +28,39 @@ db_users['entries'].each do |user, details|
       new_known_users.push(known_user)
     end
     new_known_users.push(user)
-    
+
     directory details['home'] + '/workspace' do
       owner user
       group user
       mode 0755
       action :create
     end
-    
+
     last_used_port = node['codebox']['last_used_port']
     port_to_use = last_used_port + 1
-    
+
     config = {}
     config['user'] = user
     config['home'] = details['home']
     config['port'] = port_to_use.to_s
-    
+
     template '/etc/init.d/codebox_' + port_to_use.to_s do
       source 'startscripts/' + node.platform + '/codebox.init.erb'
       mode 0755
       owner 'root'
       group 'root'
-      variables({
-        :config => config
-      })
+      # rubocop:disable HashSyntax
+      variables(:config => config)
+      # rubocop:enable HashSyntax
       action :create
     end
-    
+
     node.normal['codebox']['last_used_port'] = port_to_use
     node.normal['codebox']['known_users'] = new_known_users
   end
-  
+
   # define service
-  
+
   # add nginx vhost
-  
+
 end

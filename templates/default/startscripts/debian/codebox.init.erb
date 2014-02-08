@@ -14,7 +14,7 @@
 # Do NOT "set -e"
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 DESC="codebox is cloud ide based on node."
 NAME=codebox.js
 DAEMON=<%= @config['home'] %>/node_modules/codebox/bin/$NAME

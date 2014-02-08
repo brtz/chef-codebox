@@ -1,18 +1,20 @@
 # Encoding: UTF-8
 # Copyright (c) 2014, Nils Bartels, see LICENSE for details
 
+# rubocop:disable LineLength
 deb_virtualbox = "#{Chef::Config[:file_cache_path]}/virtualbox_#{node['codebox']['kitchen-env']['virtualbox']['version']}.deb"
 deb_vagrant = "#{Chef::Config[:file_cache_path]}/vagrant_#{node['codebox']['kitchen-env']['vagrant']['version']}.deb"
+# rubocop:enable LineLength
 
 remote_file deb_virtualbox do
   source node['codebox']['kitchen-env']['virtualbox']['url']
-  mode "0644"
+  mode 0644
   not_if { ::File.exists?(deb_virtualbox) }
 end
 
 remote_file deb_vagrant do
   source node['codebox']['kitchen-env']['vagrant']['url']
-  mode "0644"
+  mode 0644
   not_if { ::File.exists?(deb_vagrant) }
 end
 
