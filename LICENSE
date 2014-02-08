@@ -1,25 +1,3 @@
-Description
-===========
-
-Requirements
-============
-
-Software Links
-==============
-
-This cookbooks uses various pieces of software, either prepackaged or from source code. Please check their sites for
-further documentation.
-
-* codebox : http://www.codebox.io
-
-Poem
-=======
-
-License and Author
-==================
-
-Author:: Nils Bartels <n.bartels@bigpoint.net>
-
 Copyright (c) 2014, Nils Bartels
 All rights reserved.
 

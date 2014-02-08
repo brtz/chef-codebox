@@ -1,0 +1,21 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+- name: wheezy-64
+  driver_config:
+    box: wheezy64
+    box_url: http://debbuild.bigpoint.net/wheezy64.box
+
+suites:
+  - name: server
+    roles_path: "test/integration/default/roles"
+    run_list:
+      - role[codebox-server]
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.224.11"}]

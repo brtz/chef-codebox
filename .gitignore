@@ -1,0 +1,17 @@
+# Bundler
+/.bundle/
+/bin/
+/bundle/
+/vendor/gems/
+*~
+
+# Berkshelf
+/cookbooks/
+Berksfile.lock
+
+# Vagrant
+.vagrant
+
+Gemfile.lock
+.kitchen/
+.kitchen.local.yml
