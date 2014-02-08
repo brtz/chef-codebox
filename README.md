@@ -1,8 +1,35 @@
 Description
 ===========
+This chef cookbook installs a box to be a developer system serving a web based cloud ide.
+In this case codebox will be delivered. As this cookbook is also focused on multi user support
+multiple codebox instances are possible. To simplify access the instances are served through
+an nginx reverse proxy.
 
 Requirements
 ============
+The cookbook requires you to create a databag call codebox including an item called users. In there you have
+to store at least one user with his details. See the test/integration/default/data_bags/codebox/users.json.
+
+PLEASE BE AWARE! This cookbook will not create the user you specify there. The user has to exist on the
+targeted machine! In the author's humble opinion everyone uses his own user provisioning implementation.
+This will always result conflicts if it is implemented here as well.
+
+Please also note that the cookbook is tested with debian wheezy only. If you would like to see support for other
+platforms open up an issue/pull request providing the author with details.
+
+Further Components
+=============
+You could also call this plugins or extensions. The basic idea of this is to add further recipes that are loadable
+through a node attribute. The author added a test-kitchen fc to show an example (and as he needed that :D).
+The kitchen-env fc adds virtualbox, vagrant and test-kitchen including dependencies to the node. This way multiple
+developers can use the codebox ide and run kitchen on that machine always keeping at the same version
+(aka no more "DID YOU GUYS UPDATE VBOX AS WELL? IT BROKE..."
+You could also do other stuff like setting up a redis server or deploy a filebase to each workspace.
+In the author's humble opinion: DON'T! No matter how simple it seems, do not try to create shared services
+between different developers. Reduce usage to a minimum and deploy applications every developer on your box can
+use seperately.
+If you would like to see some other fcs included, fork this repo, write them, test them and open up a pull
+request please.
 
 Software Links
 ==============
@@ -10,7 +37,15 @@ Software Links
 This cookbooks uses various pieces of software, either prepackaged or from source code. Please check their sites for
 further documentation.
 
-* codebox : http://www.codebox.io
+* codebox: http://www.codebox.io
+* nginx: http://nginx.org/
+* git: http://git-scm.com/
+
+Optional through fc:
+* virtualbox: http://www.virtualbox.org
+* vagrant: http://www.vagrantup.com
+* test-kitchen: http://kitchen.ci/
+* rubocop: http://batsov.com/rubocop/
 
 Poem
 =======

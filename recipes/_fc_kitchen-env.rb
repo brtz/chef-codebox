@@ -51,4 +51,6 @@ gem_package 'kitchen-vagrant' do
   action :upgrade
 end
 
-
+gem_package 'rubocop' do
+  action :upgrade
+end
