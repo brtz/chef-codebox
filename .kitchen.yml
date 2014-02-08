@@ -10,11 +10,16 @@ platforms:
   driver_config:
     box: wheezy64
     box_url: http://debbuild.bigpoint.net/wheezy64.box
-  customize:
-    memory: 1024
+    network:
+    - ["forwarded_port", {guest: 80, host: 3000, auto_correct: true}]
+    customize:
+      memory: 1024
+      cpus: 2
 
 suites:
   - name: codebox
     roles_path: "test/integration/default/roles"
+    data_bags_path: "test/integration/default/data_bags"
+    encrypted_data_bag_secret_key_path: "test/integration/default/encrypted_data_bag_secret"
     run_list:
       - role[codebox-server]

@@ -1,0 +1,10 @@
+{
+  "id": "users",
+  "users": [
+    {
+      "username": "vagrant",
+      "userhome": "/home/vagrant",
+      "htpasswd": ""
+    }    
+  ]
+}
