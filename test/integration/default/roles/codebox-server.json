@@ -4,6 +4,9 @@
   "chef_type": "role",
   "json_class": "Chef::Role",
   "default_attributes": {
+    "codebox": {
+      "further_components": ["kitchen-env"]
+    }
   },
   "override_attributes": {
   },
