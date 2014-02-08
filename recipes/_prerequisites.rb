@@ -9,3 +9,6 @@ include_recipe "nodejs::npm"
 
 # we need nginx as proxy in front of the projects
 include_recipe "nginx::default"
+
+# we need git, huh?
+include_recipe "git::default"

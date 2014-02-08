@@ -14,3 +14,6 @@ supports 'debian'
 depends 'nginx'
 depends 'nodejs'
 depends 'git'
+
+# recommendations for further components
+recommends 'virtualbox'

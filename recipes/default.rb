@@ -14,5 +14,38 @@ db_users = data_bag_item('codebox', node['codebox']['data_bags']['users_name'])
 db_projects = data_bag_item('codebox', node['codebox']['data_bags']['projects_name'])
 
 # we need to seperate users
-
-# every user has projects
+db_users['entries'].each do |user, details|
+  # npm install codebox
+  unless node['codebox']['known_users'].include?(user)
+    bash "install codebox for user: " + user do
+      cwd details['home']
+      user user
+      code <<-EOH
+        npm install codebox
+      EOH
+    end
+    new_known_users = []
+    node['codebox']['known_users'].each do |known_user|
+      new_known_users.push(known_user)
+    end
+    new_known_users.push(user)
+    node.normal['codebox']['known_users'] = new_known_users
+  end
+  
+  # iterate through his projects
+  
+  # save project into known projects unless already known
+  
+  # iterate last port
+  
+  # clone project
+  
+  # fetch all
+  
+  # checkout branches
+  
+  # create startscript
+  
+  # define service
+  
+end

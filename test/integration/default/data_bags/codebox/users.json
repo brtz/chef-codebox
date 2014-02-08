@@ -1,10 +1,9 @@
 {
   "id": "users",
-  "users": [
-    {
-      "username": "vagrant",
-      "userhome": "/home/vagrant",
+  "entries": {
+    "vagrant": {
+      "home": "/home/vagrant",
       "htpasswd": ""
     }    
-  ]
+  }
 }
