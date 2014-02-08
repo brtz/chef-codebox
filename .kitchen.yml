@@ -10,12 +10,11 @@ platforms:
   driver_config:
     box: wheezy64
     box_url: http://debbuild.bigpoint.net/wheezy64.box
+  customize:
+    memory: 1024
 
 suites:
-  - name: server
+  - name: codebox
     roles_path: "test/integration/default/roles"
     run_list:
       - role[codebox-server]
-    driver_config:
-      network:
-      - ["private_network", {ip: "192.168.224.11"}]
