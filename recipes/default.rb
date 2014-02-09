@@ -43,6 +43,7 @@ db_users['entries'].each do |user, details|
     config['user'] = user
     config['home'] = details['home']
     config['port'] = port_to_use.to_s
+    config['nginx_port'] = port_to_use - 10000;
 
     template '/etc/init.d/codebox_' + port_to_use.to_s do
       source 'startscripts/' + node.platform + '/codebox.init.erb'
@@ -55,12 +56,26 @@ db_users['entries'].each do |user, details|
       action :create
     end
 
+    service 'codebox_' + config['port'] do
+      supports :status => true, :restart => true
+      action [ :enable, :start ]
+    end
+    
+    template node['nginx']['dir'] + '/sites-available/codebox_' + config['port'] do
+      source 'nginx/site.erb'
+      mode 0755
+      owner node['nginx']['user']
+      group node['nginx']['user']
+      # rubocop:disable HashSyntax
+      variables(:config => config)
+      # rubocop:enable HashSyntax
+      action :create
+    end
+
+    nginx_site 'codebox_' + config['port']
+
     node.normal['codebox']['last_used_port'] = port_to_use
     node.normal['codebox']['known_users'] = new_known_users
   end
-
-  # define service
-
-  # add nginx vhost
 
 end
