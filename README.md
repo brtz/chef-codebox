@@ -13,7 +13,7 @@ The given example is user vagrant, password "test".
 
 PLEASE BE AWARE! This cookbook will not create the user you specify there. The user has to exist on the
 targeted machine! In the author's humble opinion everyone uses his own user provisioning implementation.
-This will always result conflicts if it is implemented here as well.
+This will always result in conflicts if it is implemented here as well.
 
 Please also note that the cookbook is tested with debian wheezy only. If you would like to see support for other
 platforms open up an issue/pull request providing the author with details.
