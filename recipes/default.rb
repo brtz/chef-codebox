@@ -22,7 +22,7 @@ db_users['entries'].each do |user, details|
     code <<-EOH
       npm install codebox
     EOH
-    not_if { ::File.exists?('/home/'+ user + '/node_modules/codebox/bin/codebox.js') }
+    not_if { ::File.exists?('/home/' + user + '/node_modules/codebox/bin/codebox.js') }
   end
 
   directory details['home'] + '/workspace' do
