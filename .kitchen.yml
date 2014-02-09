@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+- name: wheezy-64
+  driver_config:
+    box: wheezy64
+    box_url: http://debbuild.bigpoint.net/wheezy64.box
+    network:
+    - ["forwarded_port", {guest: 20000, host: 3000, auto_correct: true}]
+    - ["forwarded_port", {guest: 30000, host: 3001, auto_correct: true}]
+    customize:
+      memory: 4096
+      cpus: 3
+
+suites:
+  - name: codebox
+    roles_path: "test/integration/default/roles"
+    data_bags_path: "test/integration/default/data_bags"
+    encrypted_data_bag_secret_key_path: "test/integration/default/encrypted_data_bag_secret"
+    run_list:
+      - role[codebox-server]

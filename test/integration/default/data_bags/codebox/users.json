@@ -1,0 +1,12 @@
+{
+  "id": "users",
+  "entries": {
+    "vagrant": {
+      "home": "/home/vagrant",
+      "password_enabled": true,
+      "htpasswd": "a7ju3AHRtxQ8E",
+      "port": 30000,
+      "nginx_port": 20000
+    }    
+  }
+}
