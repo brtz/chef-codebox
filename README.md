@@ -9,6 +9,7 @@ Requirements
 ============
 The cookbook requires you to create a databag call codebox including an item called users. In there you have
 to store at least one user with his details. See the test/integration/default/data_bags/codebox/users.json.
+The given example is user vagrant, password "test".
 
 PLEASE BE AWARE! This cookbook will not create the user you specify there. The user has to exist on the
 targeted machine! In the author's humble opinion everyone uses his own user provisioning implementation.

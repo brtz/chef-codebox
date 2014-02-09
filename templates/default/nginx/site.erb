@@ -1,6 +1,10 @@
 server {
   listen <%= @config['nginx_port'] %>;
   location / {
+    <% if @config['password_enabled'] %>
+    auth_basic            "Restricted to <%= config['user'] %>";
+    auth_basic_user_file  codebox_<%= config['port'] %>;
+    <% end %>
     proxy_pass        http://localhost:<%= @config['port'] %>;
     proxy_set_header  X-Real-IP  $remote_addr;
   }
