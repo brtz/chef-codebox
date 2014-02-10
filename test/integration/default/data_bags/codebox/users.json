@@ -4,7 +4,7 @@
     "vagrant": {
       "home": "/home/vagrant",
       "password_enabled": true,
-      "htpasswd": "a7ju3AHRtxQ8E",
+      "htpasswd": "nvY5kVYwc71xE",
       "port": 30000,
       "nginx_port": 20000
     }    
