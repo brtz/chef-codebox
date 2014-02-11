@@ -11,8 +11,8 @@ platforms:
     box: wheezy64
     box_url: http://debbuild.bigpoint.net/wheezy64.box
     network:
-    - ["forwarded_port", {guest: 20000, host: 3000, auto_correct: true}]
-    - ["forwarded_port", {guest: 30000, host: 3001, auto_correct: true}]
+    - ["forwarded_port", {guest: 20000, host: 20000, auto_correct: true}]
+    - ["forwarded_port", {guest: 30000, host: 30000, auto_correct: true}]
     customize:
       memory: 4096
       cpus: 3
