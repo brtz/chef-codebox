@@ -38,6 +38,7 @@ db_users['entries'].each do |user, details|
   config['port'] = details['port']
   config['nginx_port'] = details['nginx_port']
   config['password_enabled'] = details['password_enabled']
+  config['htpasswd'] = details['htpasswd']
 
   # rubocop:disable HashSyntax
   template '/etc/init.d/codebox_' + config['port'].to_s do
